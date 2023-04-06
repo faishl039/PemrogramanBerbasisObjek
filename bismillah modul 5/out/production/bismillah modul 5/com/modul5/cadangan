@@ -1,0 +1,71 @@
+//        while (ulang){
+//            try {
+//                System.out.print("Alamat " +i+ " : ");
+//                alamat[i] = input.nextLine();
+//                setAlamat(alamat);
+//
+//                System.out.print("Panjang Tanah " +i+ " : ");
+//                panjangTanah[i] = Integer.parseInt(input.nextLine());
+//                setPanjangTanah(panjangTanah);
+//
+//                System.out.print("Luas Tanah " +i+ " : ");
+//                luasTanah[i] = Integer.parseInt(input.nextLine());
+//                setLuasTanah(luasTanah);
+//
+//                i++;
+//            }
+//            catch (ArrayIndexOutOfBoundsException a){
+//                a.printStackTrace();
+//                System.out.println("Maksimal Data Telah Terpenuhi!");
+//            }
+//            catch (Exception a){
+//                a.printStackTrace();
+//                System.out.println("Mohon Masukkan Angka Pada Panjang & Luas Tanah!");
+//            }
+//
+//            //if ()
+//        }
+
+String toFile = String.format("%s, %d, %d\n" + Arrays.toString(getAlamat()), Arrays.toString(getPanjangTanah()), Arrays.toString(getLuasTanah()));
+
+//    public void menu(){
+//        int jawab;
+//        System.out.println("Selamat Datang di Dinas Pertanahan");
+//        System.out.println("===== Menu =====\n1. Input Data\n2.Lihat Data");
+//        System.out.print("Pilih Menu : ");
+//        jawab = input.nextInt();
+//
+//        switch (jawab){
+//            case 1 : input();
+//            System.out.println("Silahkan Masukkan Data Tanah Anda!");
+//            menu();
+//            case 2 : tampilkan(); menu();
+//            default:break;
+//        }
+//    }
+
+//            StringTokenizer tokenBaca = new StringTokenizer(tampil);
+//            System.out.print(tokenBaca.nextToken());
+//            System.out.print(tokenBaca.nextToken());
+//            System.out.printf("%s %s %s", Arrays.toString(alamat), Arrays.toString(panjangTanah), Arrays.toString(luasTanah));
+
+while (tampil != null){
+                StringTokenizer tokenBaca = new StringTokenizer(tampil, "-");
+                alamat[i] = tokenBaca.nextToken();
+                panjangTanah[i] = Integer.parseInt(tokenBaca.nextToken());
+                luasTanah[i] = Integer.parseInt(tokenBaca.nextToken());
+
+                System.out.printf("%-20s %-15s %-15s", Arrays.toString(alamat), Arrays.toString(panjangTanah), Arrays.toString(luasTanah));
+                System.out.print("\n");
+                tampil = bufferBacaData.readLine();
+            }
+
+panjangTanah[i] = Integer.parseInt(input.nextLine());
+
+System.out.print("Panjang Tanah : ");
+                panjangTanah[i] = Integer.parseInt(input.nextLine());
+                setPanjangTanah(panjangTanah);
+
+                System.out.print("Luas Tanah : ");
+                luasTanah[i] = Integer.parseInt(input.nextLine());
+                setLuasTanah(luasTanah);

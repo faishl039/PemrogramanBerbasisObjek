@@ -1,0 +1,122 @@
+public static class masukData{
+        private SimpleStringProperty mdNama;
+        private SimpleStringProperty mdNim;
+        private SimpleStringProperty mdEmail;
+        private SimpleStringProperty mdFak;
+        private SimpleStringProperty mdJur;
+        private SimpleStringProperty mdAlamat;
+        private SimpleStringProperty mdKota;
+
+        public String getMdNama() {
+            return mdNama.get();
+        }
+        public String getMdNim() {
+            return mdNim.get();
+        }
+        public String getMdEmail() {
+            return mdEmail.get();
+        }
+        public String getMdFak() {
+            return mdFak.get();
+        }
+        public String getMdJur() {
+            return mdJur.get();
+        }
+        public String getMdAlamat() {
+            return mdAlamat.get();
+        }
+        public String getMdKota() {
+            return mdKota.get();
+        }
+
+        public void setMdNama(String mdNama) {
+            this.mdNama.set(mdNama);
+        }
+        public void setMdNim(String mdNim) {
+            this.mdNim.set(mdNim);
+        }
+        public void setMdEmail(String mdEmail) {
+            this.mdEmail.set(mdEmail);
+        }
+        public void setMdFak(String mdFak) {
+            this.mdFak.set(mdFak);
+        }
+        public void setMdJur(String mdJur) {
+            this.mdJur.set(mdJur);
+        }
+        public void setMdAlamat(String mdAlamat) {
+            this.mdAlamat.set(mdAlamat);
+        }
+        public void setMdKota(String mdKota) {
+            this.mdKota.set(mdKota);
+        }
+
+        final ObservableList<masukData> mData = FXCollections.observableArrayList(
+                new masukData("Faishal","018","faishal@gmail.com", "Teknik","if", "dau","malang")
+        );
+
+//        tableNama
+
+
+    }
+
+    gsBio.add(new GetSetBiodata(
+                           fieldNama.getText(),fieldNim.getText(), fieldEmail.getText(),
+                                comboFakultas.getSelectionModel().getSelectedItem(), pilih.getSelectionModel().getSelectedItem(),
+                                fieldAlamat.getText(), fieldKota.getText()
+                        ));
+
+
+
+
+Text fakultas = new Text("Fakultas  ");
+        gPane.add(fakultas,0,4);
+        String[] daftarFakultas = {"Teknik", "Kesehatan", "Ekonomi"};
+        ComboBox comboFakultas = new ComboBox(FXCollections.observableArrayList(daftarFakultas));
+        comboFakultas.setValue("Choose Faculty");
+        comboFakultas.setMaxWidth(500);
+        gPane.add(comboFakultas, 1,4);
+
+        Text jurusan = new Text("Jurusan  ");
+        gPane.add(jurusan,0,5);
+        ComboBox comboJurusan = new ComboBox();
+        comboJurusan.setValue("Choose");
+        comboJurusan.setMaxWidth(500);
+        gPane.add(comboJurusan, 1,5);
+
+        ComboBox pilih = new ComboBox();
+        comboFakultas.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (comboFakultas.getValue() == "Ekonomi"){
+                    String[] isiJurusan = {"Akuntansi", "Ekonomi Pembangunan", "Manajemen"};
+                    pilih.setItems(FXCollections.observableArrayList(isiJurusan));
+                    pilih.setPromptText("Choose Major");
+                    pilih.setMaxWidth(500);
+                    gPane.add(pilih, 1, 5);
+                }
+                else if (comboFakultas.getValue() == "Kesehatan"){
+                    String[] isiJurusan = {"Farmasi", "Kedokteran", "Fisioterapi"};
+                    pilih.setItems(FXCollections.observableArrayList(isiJurusan));
+                    pilih.setPromptText("Choose Major");
+                    pilih.setMaxWidth(500);
+                    gPane.add(pilih, 1, 5);
+                }
+                else if (comboFakultas.getValue() == "Teknik"){
+                    String[] isiJurusan = {"Industri", "Informatika", "Sipil"};
+                    pilih.setItems(FXCollections.observableArrayList(isiJurusan));
+                    pilih.setPromptText("Choose Major");
+                    pilih.setMaxWidth(500);
+                    gPane.add(pilih, 1, 5);
+                }
+            }
+        });
+
+        //        HBox hbxEx = new HBox(15);
+        //        hbxEx.setAlignment(Pos.BOTTOM_RIGHT);
+        //        Button exit = new Button("Exit");
+        //        exit.setStyle("-fx-background-color:#FF0000 ; -fx-text-fill: white");
+        //        Button back = new Button("Back");
+        //        exit.setStyle("-fx-background-color:#00A86B ; -fx-text-fill: white");
+        //
+        //        hbxEx.getChildren().addAll(exit, back);
